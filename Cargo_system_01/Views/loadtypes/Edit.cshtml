@@ -1,0 +1,46 @@
+﻿@model Cargo_system_01.Models.loadtype
+
+@{
+    ViewBag.Title = "نوع بار";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-primary centerbox">
+        <div class="card-header">
+            <h3 class="card-title">ویرایش نوع بار </h3>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.loadtype_id)
+
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="name">نام :</label>
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control col-md-8", @placeholder = "نام" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ذخیره" class="btn btn-default" />
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

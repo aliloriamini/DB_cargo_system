@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html style="background-color:#f4f6f9">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/css/custom-style.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/specialies.css" rel="stylesheet" />
+    <link href="~/scripts/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/scripts/datatables/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/css/persian-datepicker.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <span class="brand-text font-weight-light">پروژه پایگاه داده<br /> سیستم باربری</span>
+            </a>
+            <a href="#" class="brand-link">
+                <img src="~/Image/ali1.jpg" alt="علی لری امینی" title="علی لری امینی" class="img-circle img-md img-responsive"/>
+                <br />
+                <span class="brand-text font-weight-light">علی لری امینی</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div>
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">
+                                    <i class="nav-icon fa fa-dashboard"></i>
+                                    <p>
+                                        داشبورد
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-dashboard"></i>
+                                    <p>
+                                        گزارشات
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/search_orders_driver/indexes" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>لیست رانندگان</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/view_orders/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>لیست سفارشات</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/view_num_orders/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>تعداد سفارشات</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/view_bill/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>لیست تراکنش مالی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/search_orders_customer/indexes" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>لیست مشتري ها</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/search_order_status/indexes" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>وضعيت سفارشات</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/search_cartype/indexes" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>مدل هاي ماشين</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/view_num_car/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p> تعداد ماشين ها</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/view_driver/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>رانندگان ماشين</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/customers/index" class="nav-link">
+                                    <i class="nav-icon fa fa-user-plus"></i>
+                                    <p>
+                                        ثبت مشتری
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/drivers/index" class="nav-link">
+                                    <i class="nav-icon fa fa-truck"></i>
+                                    <p>
+                                        ثبت راننده
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/orders/index" class="nav-link">
+                                    <i class="nav-icon fa fa-map "></i>
+                                    <p>
+                                        ثبت سفارش
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/bills/index" class="nav-link">
+                                    <i class="nav-icon fa fa-credit-card "></i>
+                                    <p>
+                                        صورتحساب ها
+                                    </p>
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-tags "></i>
+                                    <p>
+                                        اطلاعات پایه
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/cartypes/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نوع خودرو</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/carproperties/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>ویژگی بخش بار</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/loadtypes/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نوع بار</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/packagetypes/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نوع بسته بندی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/loadstatus/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>وضعیت سفارش</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/cities/index" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>شهر ها</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                                
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+    </div>
+    <div class="content-wrapper">
+        @RenderBody()
+    </div>
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/ToolTip.js"></script>
+    <script src="~/scripts/demo.js"></script>
+    <script src="~/scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/adminlte.min.js"></script>
+    <script src="~/scripts/fastclick.min.js"></script>
+    <script src="~/scripts/datatables/jquery.dataTables.js"></script>
+    <script src="~/scripts/datatables/dataTables.bootstrap4.js"></script>
+    <script src="~/scripts/persian-datepicker.min.js"></script>
+    <script src="~/scripts/persian-date.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#grid').DataTable({
+                "language": {
+                    "sEmptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+                    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+                    "sInfoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+                    "sInfoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "نمایش _MENU_ ردیف",
+                    "sLoadingRecords": "در حال بارگزاری...",
+                    "sProcessing": "در حال پردازش...",
+                    "sSearch": "جستجو:",
+                    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+                    "oPaginate": {
+                        "sFirst": "برگه‌ی نخست",
+                        "sLast": "برگه‌ی آخر",
+                        "sNext": "بعدی",
+                        "sPrevious": "قبلی"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+                        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+                    }  
+                },
+                pageLength: 10,
+                "info": true,
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "autoWidth": true
+            });
+        });
+        $('.normal-example').persianDatepicker();
+        $('.normal-example1').persianDatepicker();
+        $('.normal-example2').persianDatepicker();
+    </script>
+
+</body>
+</html>

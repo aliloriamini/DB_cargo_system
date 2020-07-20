@@ -1,0 +1,84 @@
+﻿@model Cargo_system_01.Models.bill
+
+@{
+    ViewBag.Title = "صورت حساب ها";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-primary centerbox">
+        <div class="card-header">
+            <h3 class="card-title">ویرایش صورتحساب </h3>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.bills_id)
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="price">هزینه:</label>
+                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="tax">مالیات:</label>
+                @Html.EditorFor(model => model.tax, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.tax, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="vosoli">وصولی:</label>
+                @Html.EditorFor(model => model.vosoli, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.vosoli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="date_bank">تاریخ بانک:</label>
+                <div class="input-group col-md-9">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                    <input class="normal-example form-control" name="date_bank" value="@Model.date_bank"/>
+                </div>
+                @Html.ValidationMessageFor(model => model.date_bank, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                <label class="control-label col-md-2" for="orders_id">شماره سفارش:</label>
+                @Html.DropDownList("orders_id", null, htmlAttributes: new { @class = "form-control col-md-9" })
+                @Html.ValidationMessageFor(model => model.orders_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ذخیره" class="btn btn-default" />
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

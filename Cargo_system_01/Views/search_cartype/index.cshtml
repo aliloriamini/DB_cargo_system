@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Cargo_system_01.Models.sp_cartype_Result>
+
+@{
+    ViewBag.Title = "انواع ماشين";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>انواع ماشين</h2>
+    @using (Html.BeginForm("Index", "search_cartype", FormMethod.Post))
+    {
+        <br />
+        <div class="card-tools d-flex">
+            <div class="col-md-2"></div>
+            <span style="margin-top:5px">انتخاب نوع ماشين:</span>
+            @Html.DropDownList("id",
+                    (IEnumerable<SelectListItem>)ViewBag.cartypes,
+                    new { @class = "col-md-6 form-control" })
+            <input type="submit" class="btn btn-md btn-success" value="جستجو" />
+        </div>
+        <br />
+    }
+    <div class="card-body" style="overflow: auto;white-space: nowrap;">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        نام راننده
+                    </th>
+                    <th>
+                        نام خانوادگی
+                    </th>
+                    <th>
+                        مدل ماشین
+                    </th>
+                    <th>
+                        ویژگی بخش بار
+                    </th>
+                    <th>
+                        شماره تماس
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.family)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cartype_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carproperty_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mobile)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

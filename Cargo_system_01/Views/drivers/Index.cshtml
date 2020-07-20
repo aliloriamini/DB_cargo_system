@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Cargo_system_01.Models.driver>
+
+@{
+    ViewBag.Title = "رانندگان";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>رانندگان</h2>
+
+    <p>
+        @Html.ActionLink("ایجاد راننده", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <div class="card-body">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+نام راننده
+                    </th>
+                    <th>
+نام خانوادگی
+                    </th>
+                    <th>
+شماره تلفن
+                    </th>
+                    <th>
+شماره موبایل
+                    </th>
+                    <th>
+آدرس
+                    </th>
+                    <th>
+شماره شبا
+                    </th>
+                    <th>
+ویژگی بخش بار
+                    </th>
+                    <th>
+نوع خودرو
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.family)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.adr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shaba)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.carproperty.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cartype.name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.driver_id }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("جزیات", "Details", new { id = item.driver_id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.driver_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

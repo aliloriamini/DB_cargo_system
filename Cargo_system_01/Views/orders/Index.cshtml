@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Cargo_system_01.Models.order>
+
+@{
+    ViewBag.Title = "سفارشات";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>سفارشات</h2>
+
+    <p>
+        @Html.ActionLink("ایجاد سفارش", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <div class="card-body" style="overflow: auto;white-space: nowrap;">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        شماره سفارش
+                    </th>
+                    <th>
+آدرس فرستنده
+                    </th>
+                    <th>
+نام فرستنده
+                    </th>
+                    <th>
+شماره تلفن فرستنده
+                    </th>
+                    <th>
+تاریخ ارسال
+                    </th>
+                    <th>
+نام گیرنده
+                    </th>
+                    <th>
+شماره تلفن گیرنده
+                    </th>
+                    <th>
+تاریخ دریافت
+                    </th>
+                    <th>
+وزن بار
+                    </th>
+                    <th>
+نوع خودرو
+                    </th>
+                    <th>
+تاریخ دریافت راننده
+                    </th>
+                    <th>
+توضیحات
+                    </th>
+                    <th>
+                        شهر مبدا
+                    </th>
+                    <th>
+                        شهر مقصد
+                    </th>
+                    <th>
+                        نام مشتري
+                    </th>
+                    <th>
+                        نام راننده
+                    </th>
+                    <th>
+                        وضعيت بار
+                    </th>
+                    <th>
+                        نوع بار
+                    </th>
+                    <th>
+                        نوع بسته بندي
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.orders_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_adr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.load_weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cartype.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.city.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.city1.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customer.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loadstatu.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loadtype.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.packagetype.name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.orders_id }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("جزیات", "Details", new { id = item.orders_id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.orders_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

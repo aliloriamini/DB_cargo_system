@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Cargo_system_01.Models.bill>
+
+@{
+    ViewBag.Title = "صورت حساب ها";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>صورتحساب</h2>
+
+    <p>
+        @Html.ActionLink("ایجاد صورتحساب", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <div class="card-body">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        هزینه
+                    </th>
+                    <th>
+                        مالیات
+                    </th>
+                    <th>
+                        وصولی
+                    </th>
+                    <th>
+                        تاریخ پرداخت بانک
+                    </th>
+                    <th>
+                        آدرس مبدا
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.vosoli)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_bank)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order.from_adr)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.bills_id }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("جزیات", "Details", new { id = item.bills_id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.bills_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

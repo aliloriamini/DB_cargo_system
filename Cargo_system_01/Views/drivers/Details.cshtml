@@ -1,0 +1,103 @@
+﻿@model Cargo_system_01.Models.driver
+
+@{
+    ViewBag.Title = "رانندگان";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="margin-top:30px">
+        <h2>جزئیات راننده</h2>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+نام راننده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+                <dt>
+نام خانوادگی
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.family)
+                </dd>
+
+                <dt>
+شماره تلفن
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tel)
+                </dd>
+
+                <dt>
+شماره موبایل
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.mobile)
+                </dd>
+
+                <dt>
+آدرس
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.adr)
+                </dd>
+
+                <dt>
+شماره شبا
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.shaba)
+                </dd>
+@if (!string.IsNullOrWhiteSpace(Model.carimg))
+{
+                <dt>
+تصویر خودرو
+                </dt>
+
+                <dd>
+                    <img src="@Url.Content(Model.carimg)" width="250" height="250" multiple />
+                </dd>
+}
+                <dt>
+ویژگی بخش بار
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.carproperty.name)
+                </dd>
+
+                <dt>
+نوع خودرو
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.cartype.name)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("ویرایش", "Edit", new { id = Model.cartype_id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+</div>
+
+<br />
+<br />
+<br />

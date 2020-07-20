@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Cargo_system_01.Models.city>
+
+@{
+    ViewBag.Title = "شهرها";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+<div class="card-body">
+    <h2>شهرها</h2>
+
+    <p>
+        @Html.ActionLink("ایجاد شهر", "Create",null, new { @class = "btn btn-success" })
+    </p>
+    <div class="card-body">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        نام
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.city_id }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("جزیات", "Details", new { id = item.city_id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.city_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

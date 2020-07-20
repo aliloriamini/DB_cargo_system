@@ -1,0 +1,91 @@
+﻿@model Cargo_system_01.Models.driver
+
+@{
+    ViewBag.Title = "رانندگان";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+
+
+@using (Html.BeginForm("Create", "drivers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-primary centerbox">
+        <div class="card-header">
+            <h3 class="card-title">ایجاد راننده جديد</h3>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+                <div class="row card-body">
+                    <label class="control-label col-md-2" for="name">نام:</label>
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.family,"نام خانوادگی:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.family, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.family, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.cartype_id, "نوع ماشين:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownList("cartype_id", null, htmlAttributes: new { @class = "form-control col-md-9" })
+                    @Html.ValidationMessageFor(model => model.cartype_id, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.carproperty_id, "مدل ماشين:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownList("carproperty_id", null, htmlAttributes: new { @class = "form-control col-md-9" })
+                    @Html.ValidationMessageFor(model => model.carproperty_id, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.tel,"شماره تلفن:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.mobile,"شماره موبایل:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.mobile, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.adr,"آدرس:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.adr, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.adr, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.shaba,"شماره شبا:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.shaba, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                    @Html.ValidationMessageFor(model => model.shaba, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row card-body">
+                    @Html.LabelFor(model => model.carimg,"تصویر خودرو:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input type="file" name="ImageFile" id="ImageFile">
+                    @Html.ValidationMessageFor(model => model.carimg, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="ثبت" class="btn btn-default" />
+                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-primary" })
+                </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

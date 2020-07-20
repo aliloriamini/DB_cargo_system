@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cargo_system_01.Models.packagetype>
+
+@{
+    ViewBag.Title = "نوع بسته بندی";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>نوع بسته بندی</h2>
+
+    <p>
+        @Html.ActionLink("ایجاد بسته بندی", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <div class="card-body">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        نام
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.packagetype_id }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("جزیات", "Details", new { id = item.packagetype_id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.packagetype_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

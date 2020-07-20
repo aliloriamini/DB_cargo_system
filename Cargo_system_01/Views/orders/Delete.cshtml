@@ -1,0 +1,183 @@
+﻿@model Cargo_system_01.Models.order
+
+@{
+    ViewBag.Title = "سفارشات";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="margin-top:30px">
+        <h3>آیا شما از حذف کردن این آیتم مطمئن هستید؟</h3>
+        <h2>جزئیات سفارش</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    آدرس فرستنده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.from_adr)
+                </dd>
+
+                <dt>
+                    نام فرستنده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.from_name)
+                </dd>
+
+                <dt>
+                    موبایل فرستنده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.from_mobile)
+                </dd>
+
+                <dt>
+                    تاریخ ارسال
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.from_date)
+                </dd>
+
+                <dt>
+                    نام گیرنده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.to_name)
+                </dd>
+
+                <dt>
+                    موبایل گیرنده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.to_mobile)
+                </dd>
+
+                <dt>
+                    تاریخ دریافت
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.to_date)
+                </dd>
+
+                <dt>
+                    وزن بار
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.load_weight)
+                </dd>
+
+                <dt>
+                    مدل ماشین
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.cartype.name)
+                </dd>
+
+                <dt>
+                    تاریخ دریافت راننده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.driver_date)
+                </dd>
+
+                <dt>
+                    توضیحات
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+
+                <dt>
+                    شهر مبدا
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.city.name)
+                </dd>
+
+                <dt>
+                    شهر مقصد
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.city1.name)
+                </dd>
+
+                <dt>
+                    نام مشتري
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.customer.name)
+                </dd>
+
+                <dt>
+                    نام راننده
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.driver.name)
+                </dd>
+
+                <dt>
+                    وضعيت بار
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.loadstatu.name)
+                </dd>
+
+                <dt>
+                    نوع بار
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.loadtype.name)
+                </dd>
+
+                <dt>
+                    نوع بسته بندي
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.packagetype.name)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="حذف" class="btn btn-danger" /> 
+                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+    <br />
+    <br />
+    <br />

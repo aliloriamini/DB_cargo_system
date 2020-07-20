@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Cargo_system01ModelStoreContainer" CdmEntityContainer="Cargo_system01Entities3">
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="Cargo_system01Model.bill">
+        <MappingFragment StoreEntitySet="bills">
+          <ScalarProperty Name="bills_id" ColumnName="bills_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="vosoli" ColumnName="vosoli" />
+          <ScalarProperty Name="date_bank" ColumnName="date_bank" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carproperties">
+      <EntityTypeMapping TypeName="Cargo_system01Model.carproperty">
+        <MappingFragment StoreEntitySet="carproperty">
+          <ScalarProperty Name="carproperty_id" ColumnName="carproperty_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cartypes">
+      <EntityTypeMapping TypeName="Cargo_system01Model.cartype">
+        <MappingFragment StoreEntitySet="cartype">
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="Cargo_system01Model.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="Cargo_system01Model.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="family" ColumnName="family" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="adr" ColumnName="adr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="Cargo_system01Model.driver">
+        <MappingFragment StoreEntitySet="driver">
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="family" ColumnName="family" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="carproperty_id" ColumnName="carproperty_id" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="adr" ColumnName="adr" />
+          <ScalarProperty Name="shaba" ColumnName="shaba" />
+          <ScalarProperty Name="carimg" ColumnName="carimg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loadstatus">
+      <EntityTypeMapping TypeName="Cargo_system01Model.loadstatu">
+        <MappingFragment StoreEntitySet="loadstatus">
+          <ScalarProperty Name="loadstatus_id" ColumnName="loadstatus_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loadtypes">
+      <EntityTypeMapping TypeName="Cargo_system01Model.loadtype">
+        <MappingFragment StoreEntitySet="loadtype">
+          <ScalarProperty Name="loadtype_id" ColumnName="loadtype_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="Cargo_system01Model.order">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="packagetypes">
+      <EntityTypeMapping TypeName="Cargo_system01Model.packagetype">
+        <MappingFragment StoreEntitySet="packagetype">
+          <ScalarProperty Name="packagetype_id" ColumnName="packagetype_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Cargo_system01Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_bills">
+      <EntityTypeMapping TypeName="Cargo_system01Model.View_bills">
+        <MappingFragment StoreEntitySet="View_bills">
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="date_bank" ColumnName="date_bank" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="vosoli" ColumnName="vosoli" />
+          <ScalarProperty Name="bills_id" ColumnName="bills_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_driver">
+      <EntityTypeMapping TypeName="Cargo_system01Model.View_driver">
+        <MappingFragment StoreEntitySet="View_driver">
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="carproperty_id" ColumnName="carproperty_id" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="carproperty_name" ColumnName="carproperty_name" />
+          <ScalarProperty Name="cartype_name" ColumnName="cartype_name" />
+          <ScalarProperty Name="family" ColumnName="family" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_num_car">
+      <EntityTypeMapping TypeName="Cargo_system01Model.View_num_car">
+        <MappingFragment StoreEntitySet="View_num_car">
+          <ScalarProperty Name="cartype_name" ColumnName="cartype_name" />
+          <ScalarProperty Name="num_car" ColumnName="num_car" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_num_orders">
+      <EntityTypeMapping TypeName="Cargo_system01Model.View_num_orders">
+        <MappingFragment StoreEntitySet="View_num_orders">
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="num_order" ColumnName="num_order" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_orders">
+      <EntityTypeMapping TypeName="Cargo_system01Model.View_orders">
+        <MappingFragment StoreEntitySet="View_orders">
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="fn_cartype" FunctionName="Cargo_system01Model.Store.fn_cartype">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.fn_cartype_Result">
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="family" ColumnName="family" />
+          <ScalarProperty Name="cartype_name" ColumnName="cartype_name" />
+          <ScalarProperty Name="carproperty_name" ColumnName="carproperty_name" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="carproperty_id" ColumnName="carproperty_id" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fn_orders_customer" FunctionName="Cargo_system01Model.Store.fn_orders_customer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.fn_orders_customer_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fn_orders_driver" FunctionName="Cargo_system01Model.Store.fn_orders_driver">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.fn_orders_driver_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fn_orders_status" FunctionName="Cargo_system01Model.Store.fn_orders_status">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.fn_orders_status_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Cargo_system01Model.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_cartype" FunctionName="Cargo_system01Model.Store.sp_cartype">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_cartype_Result">
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="family" ColumnName="family" />
+          <ScalarProperty Name="cartype_name" ColumnName="cartype_name" />
+          <ScalarProperty Name="carproperty_name" ColumnName="carproperty_name" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="carproperty_id" ColumnName="carproperty_id" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Cargo_system01Model.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Cargo_system01Model.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Cargo_system01Model.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Cargo_system01Model.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_orders_customer" FunctionName="Cargo_system01Model.Store.sp_orders_customer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_orders_customer_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_orders_driver" FunctionName="Cargo_system01Model.Store.sp_orders_driver">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_orders_driver_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_orders_search" FunctionName="Cargo_system01Model.Store.sp_orders_search">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_orders_search_Result">
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_orders_status" FunctionName="Cargo_system01Model.Store.sp_orders_status">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Cargo_system01Model.sp_orders_status_Result">
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="driver_family" ColumnName="driver_family" />
+          <ScalarProperty Name="driver_mobile" ColumnName="driver_mobile" />
+          <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="from_adr" ColumnName="from_adr" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_mobile" ColumnName="from_mobile" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="from_city" ColumnName="from_city" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_mobile" ColumnName="to_mobile" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="to_city" ColumnName="to_city" />
+          <ScalarProperty Name="load_type" ColumnName="load_type" />
+          <ScalarProperty Name="package_type" ColumnName="package_type" />
+          <ScalarProperty Name="load_weight" ColumnName="load_weight" />
+          <ScalarProperty Name="cartype_id" ColumnName="cartype_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="driver_date" ColumnName="driver_date" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_family" ColumnName="customer_family" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Cargo_system01Model.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Cargo_system01Model.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

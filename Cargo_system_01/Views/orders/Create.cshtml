@@ -1,0 +1,203 @@
+﻿@model Cargo_system_01.Models.order
+
+@{
+    ViewBag.Title = "سفارشات";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<
+<br />
+<br />
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-primary centerbox">
+        <div class="card-header">
+            <h3 class="card-title">ایجاد سفارش جدید</h3>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.customer_id, "نام مشتري:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("customer_id", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.from_adr,"آدرس فرستنده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.from_adr, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.from_adr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.from_name,"نام فرستنده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.from_name, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.from_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.from_mobile,"شماره موبایل فرستنده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.from_mobile, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.from_mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.from_date,"تاریخ ارسال:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="input-group col-md-8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                    <input class="normal-example form-control" name="from_date" />
+                </div>
+                @Html.ValidationMessageFor(model => model.from_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.from_city, "شهر مبدا", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("from_city", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.from_city, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.to_name,"نام گیرنده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.to_name, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.to_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.to_mobile,"شماره موبایل گیرنده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.to_mobile, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.to_mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.to_date,"تاریخ دریافت:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="input-group col-md-8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                    <input class="normal-example1 form-control" name="to_date" />
+                </div>
+                @Html.ValidationMessageFor(model => model.to_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.to_city, "شهر مقصد:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("to_city", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.to_city, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.load_type, "نوع بار:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("load_type", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.load_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.package_type, "نوع بسته بندي:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("package_type", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.package_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.load_weight,"وزن بار:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.EditorFor(model => model.load_weight, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+                @Html.ValidationMessageFor(model => model.load_weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.cartype_id, "نوع ماشين:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("cartype_id", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.cartype_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.driver_id, "نام راننده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("driver_id", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.driver_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.driver_date,"تاریخ دریافت راننده:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="input-group col-md-8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                    <input class="normal-example2 form-control" name="driver_date" />
+                </div>
+                @Html.ValidationMessageFor(model => model.driver_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.order_status, "وضعيت بار:", htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.DropDownList("order_status", null, htmlAttributes: new { @class = "form-control col-md-8" })
+                @Html.ValidationMessageFor(model => model.order_status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="card-body row">
+                @Html.LabelFor(model => model.description,"توضیحات:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <textarea class="form-control text-box col-md-8" id="description" name="description" type="text" value="" rows="5"></textarea>
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ثبت" class="btn btn-default" />
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,77 @@
+﻿@model Cargo_system_01.Models.customer
+
+@{
+    ViewBag.Title = "مشتري";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-primary centerbox">
+        <div class="card-header" style="margin-bottom:10px">
+            <h3 class="card-title">ایجاد مشتري جدید</h3>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="row card-body">
+                <label class = "control-label col-md-2" for="name">نام:</label>
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row card-body">
+                <label class="control-label col-md-2" for="family">نام خانوادگی:</label>
+                @Html.EditorFor(model => model.family, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.family, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row card-body">
+                <label class="control-label col-md-2" for="tel">شماره تلفن:</label>
+                @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row card-body">
+                <label class="control-label col-md-2" for="mobile">شماره موبایل:</label>
+                @Html.EditorFor(model => model.mobile, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row card-body">
+                <label class="control-label col-md-2" for="adr">آدرس:</label>
+                @Html.EditorFor(model => model.adr, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+                @Html.ValidationMessageFor(model => model.adr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ثبت" class="btn btn-default" />
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

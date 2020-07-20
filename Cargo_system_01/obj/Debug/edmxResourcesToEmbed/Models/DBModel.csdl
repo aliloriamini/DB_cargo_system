@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cargo_system01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="bills_id" />
+    </Key>
+    <Property Name="bills_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="tax" Type="Int32" />
+    <Property Name="vosoli" Type="Int32" />
+    <Property Name="date_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orders_id" Type="Int32" />
+    <NavigationProperty Name="order" Relationship="Self.FK_bills_orders" FromRole="bills" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="carproperty">
+    <Key>
+      <PropertyRef Name="carproperty_id" />
+    </Key>
+    <Property Name="carproperty_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="drivers" Relationship="Self.FK_driver_carproperty" FromRole="carproperty" ToRole="driver" />
+  </EntityType>
+  <EntityType Name="cartype">
+    <Key>
+      <PropertyRef Name="cartype_id" />
+    </Key>
+    <Property Name="cartype_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="drivers" Relationship="Self.FK_driver_cartype" FromRole="cartype" ToRole="driver" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_cartype" FromRole="cartype" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_city" FromRole="city" ToRole="orders" />
+    <NavigationProperty Name="orders1" Relationship="Self.FK_orders_city1" FromRole="city" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_customer" FromRole="customer" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="driver">
+    <Key>
+      <PropertyRef Name="driver_id" />
+    </Key>
+    <Property Name="driver_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="family" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cartype_id" Type="Int32" Nullable="false" />
+    <Property Name="carproperty_id" Type="Int32" Nullable="false" />
+    <Property Name="tel" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shaba" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="carimg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carproperty" Relationship="Self.FK_driver_carproperty" FromRole="driver" ToRole="carproperty" />
+    <NavigationProperty Name="cartype" Relationship="Self.FK_driver_cartype" FromRole="driver" ToRole="cartype" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_driver" FromRole="driver" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="loadstatu">
+    <Key>
+      <PropertyRef Name="loadstatus_id" />
+    </Key>
+    <Property Name="loadstatus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_loadstatus" FromRole="loadstatus" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="loadtype">
+    <Key>
+      <PropertyRef Name="loadtype_id" />
+    </Key>
+    <Property Name="loadtype_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_loadtype" FromRole="loadtype" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="orders_id" />
+    </Key>
+    <Property Name="orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="from_adr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_city" Type="Int32" />
+    <Property Name="to_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_city" Type="Int32" />
+    <Property Name="load_type" Type="Int32" />
+    <Property Name="package_type" Type="Int32" />
+    <Property Name="load_weight" Type="Int32" />
+    <Property Name="cartype_id" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="driver_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_status" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="bills" Relationship="Self.FK_bills_orders" FromRole="orders" ToRole="bills" />
+    <NavigationProperty Name="cartype" Relationship="Self.FK_orders_cartype" FromRole="orders" ToRole="cartype" />
+    <NavigationProperty Name="city" Relationship="Self.FK_orders_city" FromRole="orders" ToRole="city" />
+    <NavigationProperty Name="city1" Relationship="Self.FK_orders_city1" FromRole="orders" ToRole="city" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_orders_customer" FromRole="orders" ToRole="customer" />
+    <NavigationProperty Name="driver" Relationship="Self.FK_orders_driver" FromRole="orders" ToRole="driver" />
+    <NavigationProperty Name="loadstatu" Relationship="Self.FK_orders_loadstatus" FromRole="orders" ToRole="loadstatus" />
+    <NavigationProperty Name="loadtype" Relationship="Self.FK_orders_loadtype" FromRole="orders" ToRole="loadtype" />
+    <NavigationProperty Name="packagetype" Relationship="Self.FK_orders_packagetype" FromRole="orders" ToRole="packagetype" />
+  </EntityType>
+  <EntityType Name="packagetype">
+    <Key>
+      <PropertyRef Name="packagetype_id" />
+    </Key>
+    <Property Name="packagetype_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_packagetype" FromRole="packagetype" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_bills_orders">
+    <End Role="orders" Type="Self.order" Multiplicity="0..1" />
+    <End Role="bills" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="orders_id" />
+      </Principal>
+      <Dependent Role="bills">
+        <PropertyRef Name="orders_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_driver_carproperty">
+    <End Role="carproperty" Type="Self.carproperty" Multiplicity="1" />
+    <End Role="driver" Type="Self.driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carproperty">
+        <PropertyRef Name="carproperty_id" />
+      </Principal>
+      <Dependent Role="driver">
+        <PropertyRef Name="carproperty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_driver_cartype">
+    <End Role="cartype" Type="Self.cartype" Multiplicity="1" />
+    <End Role="driver" Type="Self.driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cartype">
+        <PropertyRef Name="cartype_id" />
+      </Principal>
+      <Dependent Role="driver">
+        <PropertyRef Name="cartype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_cartype">
+    <End Role="cartype" Type="Self.cartype" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cartype">
+        <PropertyRef Name="cartype_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="cartype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_city">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="from_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_city1">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="to_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_driver">
+    <End Role="driver" Type="Self.driver" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="driver_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="driver_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_loadstatus">
+    <End Role="loadstatus" Type="Self.loadstatu" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loadstatus">
+        <PropertyRef Name="loadstatus_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="order_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_loadtype">
+    <End Role="loadtype" Type="Self.loadtype" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loadtype">
+        <PropertyRef Name="loadtype_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="load_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_packagetype">
+    <End Role="packagetype" Type="Self.packagetype" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="packagetype">
+        <PropertyRef Name="packagetype_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="package_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Cargo_system01Entities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bills" EntityType="Self.bill" />
+    <EntitySet Name="carproperties" EntityType="Self.carproperty" />
+    <EntitySet Name="cartypes" EntityType="Self.cartype" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="drivers" EntityType="Self.driver" />
+    <EntitySet Name="loadstatus" EntityType="Self.loadstatu" />
+    <EntitySet Name="loadtypes" EntityType="Self.loadtype" />
+    <EntitySet Name="orders" EntityType="Self.order" />
+    <EntitySet Name="packagetypes" EntityType="Self.packagetype" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_bills_orders" Association="Self.FK_bills_orders">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="bills" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_driver_carproperty" Association="Self.FK_driver_carproperty">
+      <End Role="carproperty" EntitySet="carproperties" />
+      <End Role="driver" EntitySet="drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_driver_cartype" Association="Self.FK_driver_cartype">
+      <End Role="cartype" EntitySet="cartypes" />
+      <End Role="driver" EntitySet="drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_cartype" Association="Self.FK_orders_cartype">
+      <End Role="cartype" EntitySet="cartypes" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_city" Association="Self.FK_orders_city">
+      <End Role="city" EntitySet="cities" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_city1" Association="Self.FK_orders_city1">
+      <End Role="city" EntitySet="cities" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_customer" Association="Self.FK_orders_customer">
+      <End Role="customer" EntitySet="customers" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_driver" Association="Self.FK_orders_driver">
+      <End Role="driver" EntitySet="drivers" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_loadstatus" Association="Self.FK_orders_loadstatus">
+      <End Role="loadstatus" EntitySet="loadstatus" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_loadtype" Association="Self.FK_orders_loadtype">
+      <End Role="loadtype" EntitySet="loadtypes" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_packagetype" Association="Self.FK_orders_packagetype">
+      <End Role="packagetype" EntitySet="packagetypes" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <EntitySet Name="View_bills" EntityType="Cargo_system01Model.View_bills" />
+    <EntitySet Name="View_driver" EntityType="Cargo_system01Model.View_driver" />
+    <EntitySet Name="View_num_car" EntityType="Cargo_system01Model.View_num_car" />
+    <EntitySet Name="View_num_orders" EntityType="Cargo_system01Model.View_num_orders" />
+    <EntitySet Name="View_orders" EntityType="Cargo_system01Model.View_orders" />
+    <FunctionImport Name="fn_cartype" IsComposable="true" ReturnType="Collection(Cargo_system01Model.fn_cartype_Result)">
+      <Parameter Name="cartypeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_orders_customer" IsComposable="true" ReturnType="Collection(Cargo_system01Model.fn_orders_customer_Result)">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_orders_driver" IsComposable="true" ReturnType="Collection(Cargo_system01Model.fn_orders_driver_Result)">
+      <Parameter Name="driverid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_orders_status" IsComposable="true" ReturnType="Collection(Cargo_system01Model.fn_orders_status_Result)">
+      <Parameter Name="statusid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_cartype" ReturnType="Collection(Cargo_system01Model.sp_cartype_Result)">
+      <Parameter Name="cartypeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Cargo_system01Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Cargo_system01Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_orders_customer" ReturnType="Collection(Cargo_system01Model.sp_orders_customer_Result)">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_orders_driver" ReturnType="Collection(Cargo_system01Model.sp_orders_driver_Result)">
+      <Parameter Name="driverid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_orders_search" ReturnType="Collection(Cargo_system01Model.sp_orders_search_Result)">
+      <Parameter Name="from_adr" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_orders_status" ReturnType="Collection(Cargo_system01Model.sp_orders_status_Result)">
+      <Parameter Name="statusid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="View_bills">
+    <Key>
+      <PropertyRef Name="bills_id" />
+    </Key>
+    <Property Name="bills_id" Type="Int32" Nullable="false" />
+    <Property Name="vosoli" Type="Int32" />
+    <Property Name="orders_id" Type="Int32" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="from_adr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_city" Type="Int32" />
+    <Property Name="to_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_city" Type="Int32" />
+    <Property Name="load_type" Type="Int32" />
+    <Property Name="package_type" Type="Int32" />
+    <Property Name="load_weight" Type="Int32" />
+    <Property Name="cartype_id" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="driver_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_status" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="date_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="tax" Type="Int32" />
+    <Property Name="total_price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_driver">
+    <Key>
+      <PropertyRef Name="driver_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="family" />
+      <PropertyRef Name="mobile" />
+    </Key>
+    <Property Name="driver_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="family" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cartype_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="carproperty_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cartype_id" Type="Int32" />
+    <Property Name="carproperty_id" Type="Int32" />
+    <Property Name="mobile" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_num_car">
+    <Key>
+      <PropertyRef Name="driver_id" />
+    </Key>
+    <Property Name="driver_id" Type="Int32" Nullable="false" />
+    <Property Name="num_car" Type="Int32" />
+    <Property Name="cartype_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_num_orders">
+    <Key>
+      <PropertyRef Name="driver_name" />
+      <PropertyRef Name="driver_family" />
+      <PropertyRef Name="driver_mobile" />
+    </Key>
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="num_order" Type="Int32" />
+    <Property Name="driver_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="driver_family" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="driver_mobile" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_orders">
+    <Key>
+      <PropertyRef Name="orders_id" />
+    </Key>
+    <Property Name="driver_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="driver_family" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="driver_mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="orders_id" Type="Int32" Nullable="false" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="from_adr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="from_city" Type="Int32" />
+    <Property Name="to_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to_city" Type="Int32" />
+    <Property Name="load_type" Type="Int32" />
+    <Property Name="package_type" Type="Int32" />
+    <Property Name="load_weight" Type="Int32" />
+    <Property Name="cartype_id" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="driver_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_status" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="customer_family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="customer_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="fn_cartype_Result">
+    <Property Type="Int32" Name="driver_id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="family" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="cartype_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="carproperty_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="carproperty_id" Nullable="true" />
+    <Property Type="String" Name="mobile" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="fn_orders_customer_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="fn_orders_driver_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="fn_orders_status_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_cartype_Result">
+    <Property Type="Int32" Name="driver_id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="family" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="cartype_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="carproperty_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="carproperty_id" Nullable="true" />
+    <Property Type="String" Name="mobile" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_orders_customer_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_orders_driver_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_orders_search_Result">
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="sp_orders_status_Result">
+    <Property Type="String" Name="driver_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_family" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="driver_mobile" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="orders_id" Nullable="false" />
+    <Property Type="Int32" Name="customer_id" Nullable="true" />
+    <Property Type="String" Name="from_adr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="from_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="from_city" Nullable="true" />
+    <Property Type="String" Name="to_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_mobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="to_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="to_city" Nullable="true" />
+    <Property Type="Int32" Name="load_type" Nullable="true" />
+    <Property Type="Int32" Name="package_type" Nullable="true" />
+    <Property Type="Int32" Name="load_weight" Nullable="true" />
+    <Property Type="Int32" Name="cartype_id" Nullable="true" />
+    <Property Type="Int32" Name="driver_id" Nullable="true" />
+    <Property Type="String" Name="driver_date" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="order_status" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_family" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_mobile" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

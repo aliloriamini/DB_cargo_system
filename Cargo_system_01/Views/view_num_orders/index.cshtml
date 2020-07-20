@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Cargo_system_01.Models.View_num_orders>
+
+@{
+    ViewBag.Title = "تعداد سفارشات هر راننده";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+    <h2>تعداد سفارشات هر راننده</h2>
+    <div class="card-body" style="overflow: auto;white-space: nowrap;">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        تعداد سفارشات
+                    </th>
+                    <th>
+                        نام راننده
+                    </th>
+                    <th>
+                        نام خانوادگی راننده
+                    </th>
+                    <th>
+                        موبایل راننده
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.num_order)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_family)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_mobile)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

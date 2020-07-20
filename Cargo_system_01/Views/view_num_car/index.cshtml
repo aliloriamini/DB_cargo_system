@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Cargo_system_01.Models.View_num_car>
+
+@{
+    ViewBag.Title = "تعداد ماشین ها";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2>تعداد ماشین ها</h2>
+    <div class="card-body" style="overflow: auto;white-space: nowrap;">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        تعداد ماشین
+                    </th>
+                    <th>
+                        مدل ماشین
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.num_car)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cartype_name)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

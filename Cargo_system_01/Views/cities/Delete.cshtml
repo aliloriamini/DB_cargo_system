@@ -1,0 +1,46 @@
+﻿@model Cargo_system_01.Models.city
+
+@{
+    ViewBag.Title = "شهرها";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="margin-top:30px">
+        <h3>آیا شما از حذف کردن این آیتم مطمئن هستید؟</h3>
+        <h2>جزئیات شهرها</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    نام
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+            </dl>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-danger" /> 
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+</div>
+   
+<br />
+<br />
+<br />

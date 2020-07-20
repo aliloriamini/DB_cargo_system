@@ -1,0 +1,172 @@
+﻿@model IEnumerable<Cargo_system_01.Models.sp_orders_customer_Result>
+
+@{
+    ViewBag.Title = " لیست مشتریان";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <h2> لیست مشتریان</h2>
+    @using (Html.BeginForm("Index", "search_orders_customer", FormMethod.Post))
+    {
+        <br />
+        <div class="card-tools d-flex">
+            <div class="col-md-2"></div>
+            <span style="margin-top:5px">انتخاب مشتري:</span>
+            @Html.DropDownList("id",
+                    (IEnumerable<SelectListItem>)ViewBag.customers,
+                    new { @class = "col-md-6 form-control" })
+            <input type="submit" class="btn btn-md btn-success" value="جستجو" />
+        </div>
+        <br />
+    }
+    <div class="card-body" style="overflow: auto;white-space: nowrap;">
+        <table id="grid" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        نام راننده
+                    </th>
+                    <th>
+                        نام خانوادگی راننده
+                    </th>
+                    <th>
+                        موبایل راننده
+                    </th>
+                    <th>
+                        شماره سفارش
+                    </th>
+                    <th>
+                        آدرس فرستنده
+                    </th>
+                    <th>
+                        نام فرستنده
+                    </th>
+                    <th>
+                        موبایل فرستنده
+                    </th>
+                    <th>
+                        تاریخ ارسال
+                    </th>
+                    <th>
+                        شهر مبدا
+                    </th>
+                    <th>
+                        نام گیرنده
+                    </th>
+                    <th>
+                        موبایل گیرنده
+                    </th>
+                    <th>
+                        تاریخ دریافت
+                    </th>
+                    <th>
+                        شهر مبدا
+                    </th>
+                    <th>
+                        نوع بار
+                    </th>
+                    <th>
+                        نوع بسته بندی
+                    </th>
+                    <th>
+                        وزن بار
+                    </th>
+                    <th>
+                        تاریخ دریافت راننده
+                    </th>
+                    <th>
+                        وضعیت بار
+                    </th>
+                    <th>
+                        توضیحات
+                    </th>
+                    <th>
+                        نام مشتری
+                    </th>
+                    <th>
+                        نام خانوادگی مشتری
+                    </th>
+                    <th>
+                        موبایل مشتری
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_family)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.orders_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_adr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from_city)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to_city)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.load_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.package_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.load_weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.driver_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customer_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customer_family)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customer_mobile)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
